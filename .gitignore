@@ -5,6 +5,10 @@
 .vscode/
 *.history
 
+# build
+# build/
+# build/*
+
 # Environment variables
 .env
 .env.local

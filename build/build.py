@@ -1,5 +1,5 @@
 import json
-import os
+# import os
 import re
 
 with open("index.template.html", encoding="utf-8") as f:
@@ -21,7 +21,7 @@ with open("../en/index.html", "w", encoding="utf-8") as f:
 print("✔ index.html (EN)")
 
 # French → /index.html
-os.makedirs("fr", exist_ok=True)
+# os.makedirs("../fr", exist_ok=True)
 fr_output = render(template, translations["fr"])
 with open("../index.html", "w", encoding="utf-8") as f:
     f.write(fr_output)
