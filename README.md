@@ -6,3 +6,6 @@ done
 
 #### build
 python3 build.py
+
+#### git
+GIT_SSH_COMMAND="ssh -o ConnectTimeout=300 -o ServerAliveInterval=5" git push origin main
