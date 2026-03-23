@@ -355,7 +355,7 @@
       color: "#7db87d",
       src: "{{music_url}}samples/marley.mp3",
       start: 0,
-      duration: 59
+      duration: 42
     },
     {
       id: 5,
@@ -365,7 +365,7 @@
       color: "#a78bfa",
       src: "{{music_url}}samples/guitare_voix.mp3",
       start: 0,
-      duration: 154
+      duration: 48
     },
     {
       id: 6,
@@ -587,7 +587,14 @@
 
       // If real audio src available
       if (track.src) {
-        if (!audio) audio = new Audio();
+        // if (!audio) audio = new Audio();
+        if (!audio) {
+          audio = new Audio();
+          // Add ended event listener
+          audio.addEventListener('ended', () => {
+            if (isPlaying) nextTrack();
+          });
+        }        
         audio.src = track.src;
         audio.currentTime = track.start || 0;
       }
