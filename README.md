@@ -4,6 +4,7 @@ for file in *.mp3; do
   ffmpeg -i "$file" -af loudnorm=I=-16:TP=-1.5:LRA=11 "normalized_${file}"
 done
 
+ffmpeg -i crookes_2.mp3 -af loudnorm=I=-16:TP=-1.5:LRA=11 normalized_crookes_2.mp3
 
 #### build
 python3 build.py
