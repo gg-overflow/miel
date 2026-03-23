@@ -884,6 +884,10 @@ nav.scrolled {
   border-color: rgba(200,130,26,0.35);
   transform: translateY(-3px);
 }
+.contact-card-icon-link {
+  /* width: 40px; height: 40px; */
+  display: contents;
+}
 .contact-card-icon {
   width: 40px; height: 40px;
   border-radius: 8px;
