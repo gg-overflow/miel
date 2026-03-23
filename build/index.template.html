@@ -560,7 +560,8 @@
       if (elapsed >= track.duration) {
         elapsed = track.duration;
         updateProgress(elapsed);
-        nextTrack();
+        // nextTrack();
+        pause()
         return;
       }
       updateProgress(elapsed);
@@ -591,9 +592,9 @@
         if (!audio) {
           audio = new Audio();
           // Add ended event listener
-          audio.addEventListener('ended', () => {
-            if (isPlaying) nextTrack();
-          });
+          // audio.addEventListener('ended', () => {
+          //   if (isPlaying) nextTrack();
+          // });
         }        
         audio.src = track.src;
         audio.currentTime = track.start || 0;
@@ -624,6 +625,7 @@
     }
 
     function nextTrack() {
+      // if (!isPlaying && elapsed < PLAYLIST[currentIndex].duration - 0.1) return; // guard
       pause();
       loadTrack((currentIndex + 1) % PLAYLIST.length);
       play();
