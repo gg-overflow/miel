@@ -414,12 +414,12 @@
       '#888888','#666666','#f5c84a','#e8a827','#c8821a',
       '#d4603a','#a78bfa','#7db87d','#555555','#333333'
     ];
-    for (let i = 0; i < 64; i++) {
+    for (let i = 0; i < 144; i++) {
       const tile = document.createElement('div');
       tile.className = 'disco-tile';
       // Random brightness distribution to look spherical
-      const row = Math.floor(i / 8);
-      const col = i % 8;
+      const row = Math.floor(i / 12);
+      const col = i % 12;
       const distFromCenter = Math.sqrt(Math.pow(row - 3.5, 2) + Math.pow(col - 3.5, 2));
       const brightness = Math.max(0, 1 - distFromCenter / 5);
       const rand = Math.random();
