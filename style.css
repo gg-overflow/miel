@@ -948,11 +948,14 @@ nav.scrolled {
   margin-bottom: 3rem;
 }
 
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  margin-bottom: 3rem;
+.contact-grid { 
+  /* display: grid; */
+  /* grid-template-columns: 1fr 1fr 1fr; */
+  /* grid-template-columns: 1fr; */
+  max-width: 430px;
+  /* gap: 2rem; */
+  /* margin-bottom: 3rem; */
+  margin: 0 auto 3rem auto;
   text-align: left;
 }
 
@@ -962,6 +965,7 @@ nav.scrolled {
   border-radius: 8px;
   background: var(--glass);
   transition: border-color var(--transition), transform var(--transition);
+  /* margin: 0 auto; */
 }
 .contact-card:hover {
   border-color: rgba(200,130,26,0.35);
