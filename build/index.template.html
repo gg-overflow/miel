@@ -20,6 +20,7 @@
     <div class="nav-logo">Hydromiel <span>— Live</span></div>
     <ul class="nav-links">
       <li><a href="#listen">{{listen}}</a></li>
+      <li><a href="#live">Live</a></li>
       <li><a href="#about">{{about}}</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="{{lang_switch_url}}" class="lang-switch">{{lang_switch_label}}</a></li>
@@ -33,6 +34,7 @@
   <!-- Mobile menu -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="#listen" class="mob-link">{{listen}}</a>
+    <a href="#live" class="mob-link">Live</a>
     <a href="#about" class="mob-link">{{about}}</a>
     <a href="#contact" class="mob-link">Contact</a>
     <a href="#contact" class="mob-link" style="color:var(--amber)">{{book}}</a>
@@ -162,6 +164,151 @@
   </section>
 
   <div class="section-divider"></div>
+
+
+
+  <!-- ============================================================
+       LIVE SHOWS
+  ============================================================ -->
+  <section id="live">
+    <div class="live-inner">
+
+      <!-- Section header -->
+      <div class="live-header reveal">
+        <p class="section-label">🎤 Live Experience</p>
+        <h2 class="live-heading">Feel the <em class="gold">Room</em></h2>
+        <p class="live-subheading">Original tracks. Real stages. No backing tracks — ever.</p>
+      </div>
+
+      <!-- ---- ORIGINALS: photo + player ---- -->
+      <div class="live-originals">
+
+        <!-- Photo -->
+        <div class="live-photo-wrap reveal">
+          <div class="live-originals-text">
+            <h3>Our <em>Original</em> Tracks</h3>
+            <p>Beyond the covers and the crowd-pleasers, Hydromiel writes its own music. These tracks were born on stage — tested night after night in front of real audiences, refined until every note felt inevitable.</p>
+          </div>
+          <div class="live-photo">
+            <!--
+              TO ADD A REAL PHOTO:
+              Replace the .live-photo-inner div below with:
+              <img src="your-photo.jpg" alt="Hydromiel live on stage" class="live-photo-img" />
+            -->
+            <!-- <div class="live-photo-inner"> -->
+              <!-- <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                <circle cx="8.5" cy="8.5" r="1.5"/>
+                <path d="m21 15-5-5L5 21"/>
+              </svg>
+              <span>Band photo</span> -->
+              <img src="/pictures/live.jpg" alt="Hydromiel live on stage" class="live-photo-img" />
+            <!-- </div> -->
+          </div>
+        </div>
+
+        <!-- Originals text -->
+        <div class="live-originals-content reveal">
+
+
+          <!-- Compact player for originals -->
+          <div class="player-card-compact">
+
+            <!-- Small waveform -->
+            <div class="waveform-sm" id="waveformLive" aria-hidden="true"></div>
+
+            <!-- Genre badge -->
+            <div class="player-genre-badge" style="margin-bottom:0.7rem;">
+              <div class="genre-dot paused" id="liveGenreDot"></div>
+              <span id="liveGenreLabel">Original</span>
+            </div>
+
+            <div class="player-track-title" id="liveTrackTitle" style="font-size:1.15rem;">Velvet Underground</div>
+            <div class="player-track-desc" id="liveTrackDesc" style="font-size:0.8rem;margin-bottom:1.4rem;">A slow-burn soul anthem, built for the late hours</div>
+
+            <!-- Progress -->
+            <div class="progress-area">
+              <div class="progress-track" id="liveProgressTrack">
+                <div class="progress-fill" id="liveProgressFill"></div>
+                <div class="progress-thumb" id="liveProgressThumb"></div>
+              </div>
+              <div class="progress-times">
+                <span id="liveTimeElapsed">0:00</span>
+                <span id="liveTimeDuration">3:45</span>
+              </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="player-controls">
+              <button class="ctrl-btn sm" id="livePrevBtn" aria-label="Previous track">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/></svg>
+              </button>
+              <button class="ctrl-btn play-btn" id="livePlayBtn" aria-label="Play / Pause"
+                style="background:linear-gradient(135deg,var(--coral),#b84a2a);">
+                <svg id="livePlayIcon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                <svg id="livePauseIcon" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+              </button>
+              <button class="ctrl-btn sm" id="liveNextBtn" aria-label="Next track">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 18l8.5-6L6 6v12zm2-8.14 5.02 2.14L8 14.14V9.86zM16 6h2v12h-2z"/></svg>
+              </button>
+            </div>
+
+            <!-- Track list -->
+            <div class="tracklist" id="liveTracklist" style="margin-top:1.8rem;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ---- VIDEO ---- -->
+      <div class="live-video-block reveal">
+        <div class="live-video-header">
+          <h3>A Night au <em>Baro</em></h3>
+          <p>Captured live — full set, real crowd, pure Hydromiel energy.</p>
+        </div>
+
+        <div class="video-wrap">
+          <!--
+            TO ADD A REAL VIDEO, replace the .video-placeholder div below with:
+
+            Option A — local file:
+            <video controls preload="none" poster="your-thumbnail.jpg">
+              <source src="your-video.mp4" type="video/mp4" />
+            </video>
+
+            Option B — YouTube embed:
+            <iframe width="100%" style="aspect-ratio:16/9;border:none;display:block;"
+              src="https://www.youtube.com/embed/YOUR_VIDEO_ID?rel=0"
+              title="Hydromiel live at Le Caveau"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen loading="lazy"></iframe>
+
+            Option C — Vimeo embed:
+            <iframe width="100%" style="aspect-ratio:16/9;border:none;display:block;"
+              src="https://player.vimeo.com/video/YOUR_VIDEO_ID?color=c8821a"
+              title="Hydromiel live at Le Caveau"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowfullscreen loading="lazy"></iframe>
+          -->
+          <!-- <div class="video-placeholder" role="button" aria-label="Play video" tabindex="0"
+               onclick="this.innerHTML='<p style=\'color:var(--cream-dim);padding:3rem;text-align:center;font-style:italic;\'>Add your video src — see the HTML comment above for instructions.</p>'">
+            <div class="video-play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <p class="video-placeholder-label">Play — Le Caveau, Lyon · March 2025</p>
+            <span class="video-duration-badge">3:12</span>
+          </div> -->
+          <video controls preload="none" poster="/pictures/cover.png">
+            <source src="/pictures/hydromiel_funky_soul.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+
 
   <!-- ============================================================
        ABOUT
@@ -671,6 +818,26 @@
       }
     });
 
+    // document.getElementById('progressTrack').addEventListener('click', function(e) {
+    //   const rect = this.getBoundingClientRect();
+    //   const pct  = (e.clientX - rect.left) / rect.width;
+    //   const track = PLAYLIST[currentIndex];
+    //   elapsed = pct * track.duration;
+    //   updateProgress(elapsed);
+    //   if (audio && track.src) {
+    //     audio.currentTime = (track.start || 0) + elapsed;
+    //   }
+    //   if (isPlaying) {
+    //     if (rafId) cancelAnimationFrame(rafId);
+    //     elapsedAtStart = elapsed;
+    //     startTimestamp = null;
+    //     rafId = requestAnimationFrame(animateProgress);
+    //   } else {
+    //     elapsedAtStart = elapsed;
+    //     startTimestamp = null;
+    //   }
+    // });
+
     // Init
     updateUI(PLAYLIST[0]);
     updateProgress(0);
@@ -678,6 +845,262 @@
 
     return { loadTrack, play, pause };
   })();
+
+
+
+
+  // ============================================================
+  // LIVE ORIGINALS PLAYLIST
+  // ============================================================
+  const LIVE_PLAYLIST = [
+    {
+      id: 1,
+      title: "Sweet Bass Line",
+      genre: "Soul Original",
+      desc: "A slow-burn soul anthem, built for the late hours",
+      color: "#c8821a",
+      src: "/samples/_bass-line-1.mp3",        // e.g. "audio/velvet-underground.mp3"
+      duration: 210     // 3:45
+    },
+    {
+      id: 2,
+      title: "Fine to just be me",
+      genre: "Neo-Soul Original",
+      desc: "Honey-warm harmonies over a hypnotic groove",
+      color: "#d4603a",
+      src: "/samples/_be-me.mp3",
+      duration: 171     // 4:18
+    },
+    {
+      id: 3,
+      title: "Funky Soul",
+      genre: "Funk Original",
+      desc: "When the bass drops and the floor has no choice",
+      color: "#f5c84a",
+      src: "/samples/_funky-soul-5.mp3",
+      duration: 220     // 3:18
+    },
+    {
+      id: 4,
+      title: "Breathe",
+      genre: "Jazz-Funk Original",
+      desc: "A conversation between the keys and the crowd",
+      color: "#a78bfa",
+      src: "/samples/_breathe-3.mp3",
+      duration: 188     // 5:12
+    }
+  ];
+
+  // ============================================================
+  // LIVE WAVEFORM
+  // ============================================================
+  (function buildLiveWaveform() {
+    const container = document.getElementById('waveformLive');
+    if (!container) return;
+    const bars = 38;
+    for (let i = 0; i < bars; i++) {
+      const bar = document.createElement('div');
+      bar.className = 'wave-bar';
+      const h = 6 + Math.random() * 24;
+      bar.style.height = h + 'px';
+      bar.style.setProperty('--min', (h * 0.3).toFixed(0) + 'px');
+      bar.style.setProperty('--max', (h * 1.1).toFixed(0) + 'px');
+      bar.style.setProperty('--dur', (0.3 + Math.random() * 0.5).toFixed(2) + 's');
+      bar.style.animationDelay = (Math.random() * 0.5).toFixed(2) + 's';
+      container.appendChild(bar);
+    }
+  })();
+
+  // ============================================================
+  // LIVE TRACKLIST
+  // ============================================================
+  (function buildLiveTracklist() {
+    const list = document.getElementById('liveTracklist');
+    if (!list) return;
+    LIVE_PLAYLIST.forEach((track, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'tracklist-item' + (i === 0 ? ' active' : '');
+      btn.dataset.index = i;
+      const mins = Math.floor(track.duration / 60);
+      const secs = track.duration % 60;
+      const durStr = mins + ':' + (secs < 10 ? '0' : '') + secs;
+      btn.innerHTML = `
+        <span class="track-num">${i + 1}</span>
+        <span class="track-genre-dot" style="background:${track.color}"></span>
+        <span class="track-info">
+          <span class="track-name">${track.title}</span>
+          <span class="track-genre-label">${track.genre}</span>
+        </span>
+        <span class="track-dur">${durStr}</span>
+      `;
+      btn.addEventListener('click', () => {
+        livePlayer.loadTrack(i);
+        livePlayer.play();
+      });
+      list.appendChild(btn);
+    });
+  })();
+
+  // ============================================================
+  // LIVE PLAYER ENGINE
+  // ============================================================
+  const livePlayer = (function() {
+    let currentIndex = 0;
+    let isPlaying = false;
+    let audio = null;
+    let elapsed = 0;
+    let rafId = null;
+    let startTimestamp = null;
+    let elapsedAtStart = 0;
+
+    const playBtn      = document.getElementById('livePlayBtn');
+    const playIcon     = document.getElementById('livePlayIcon');
+    const pauseIcon    = document.getElementById('livePauseIcon');
+    const prevBtn      = document.getElementById('livePrevBtn');
+    const nextBtn      = document.getElementById('liveNextBtn');
+    const progressFill  = document.getElementById('liveProgressFill');
+    const progressThumb = document.getElementById('liveProgressThumb');
+    const timeElapsed   = document.getElementById('liveTimeElapsed');
+    const timeDuration  = document.getElementById('liveTimeDuration');
+    const genreLabel    = document.getElementById('liveGenreLabel');
+    const genreDot      = document.getElementById('liveGenreDot');
+    const trackTitle    = document.getElementById('liveTrackTitle');
+    const trackDesc     = document.getElementById('liveTrackDesc');
+    const waveformBars  = document.querySelectorAll('#waveformLive .wave-bar');
+
+    function formatTime(s) {
+      const m = Math.floor(s / 60);
+      const sec = Math.floor(s % 60);
+      return m + ':' + (sec < 10 ? '0' : '') + sec;
+    }
+
+    function updateUI(track) {
+      genreLabel.textContent = track.genre;
+      trackTitle.textContent = track.title;
+      trackDesc.textContent  = track.desc;
+      timeDuration.textContent = formatTime(track.duration);
+      genreDot.style.background = track.color;
+      document.querySelectorAll('#liveTracklist .tracklist-item').forEach((item, i) => {
+        item.classList.toggle('active', i === currentIndex);
+      });
+    }
+
+    function updateProgress(t) {
+      const track = LIVE_PLAYLIST[currentIndex];
+      const pct = Math.min(t / track.duration, 1) * 100;
+      progressFill.style.width = pct + '%';
+      progressThumb.style.left = pct + '%';
+      timeElapsed.textContent  = formatTime(t);
+    }
+
+    function animateProgress(ts) {
+      if (!startTimestamp) startTimestamp = ts;
+      elapsed = elapsedAtStart + (ts - startTimestamp) / 1000;
+      const track = LIVE_PLAYLIST[currentIndex];
+      if (elapsed >= track.duration) {
+        elapsed = track.duration;
+        updateProgress(elapsed);
+        nextTrack();
+        return;
+      }
+      updateProgress(elapsed);
+      rafId = requestAnimationFrame(animateProgress);
+    }
+
+    function setWaveActive(active) {
+      waveformBars.forEach(b => b.classList.toggle('active', active));
+      genreDot.classList.toggle('paused', !active);
+    }
+
+    function loadTrack(index) {
+      currentIndex = index;
+      elapsed = 0; elapsedAtStart = 0; startTimestamp = null;
+      if (rafId) cancelAnimationFrame(rafId);
+      const track = LIVE_PLAYLIST[index];
+      updateUI(track);
+      updateProgress(0);
+      if (track.src) {
+        if (!audio) audio = new Audio();
+        audio.src = track.src;
+        audio.currentTime = 0;
+      }
+    }
+
+    function play() {
+      isPlaying = true;
+      playIcon.style.display  = 'none';
+      pauseIcon.style.display = '';
+      setWaveActive(true);
+      elapsedAtStart = elapsed;
+      startTimestamp = null;
+      rafId = requestAnimationFrame(animateProgress);
+      if (audio && LIVE_PLAYLIST[currentIndex].src) audio.play().catch(() => {});
+    }
+
+    function pause() {
+      isPlaying = false;
+      playIcon.style.display  = '';
+      pauseIcon.style.display = 'none';
+      setWaveActive(false);
+      if (rafId) cancelAnimationFrame(rafId);
+      if (audio) audio.pause();
+    }
+
+    function nextTrack() {
+      pause();
+      loadTrack((currentIndex + 1) % LIVE_PLAYLIST.length);
+      play();
+    }
+
+    function prevTrack() {
+      pause();
+      loadTrack((currentIndex - 1 + LIVE_PLAYLIST.length) % LIVE_PLAYLIST.length);
+      play();
+    }
+
+    playBtn.addEventListener('click', () => { if (isPlaying) pause(); else play(); });
+    nextBtn.addEventListener('click', nextTrack);
+    prevBtn.addEventListener('click', prevTrack);
+
+    document.getElementById('liveProgressTrack').addEventListener('click', function(e) {
+      const rect = this.getBoundingClientRect();
+      const pct  = (e.clientX - rect.left) / rect.width;
+      const track = LIVE_PLAYLIST[currentIndex];
+      elapsed = pct * track.duration;
+      elapsedAtStart = elapsed;
+      startTimestamp = null;
+      updateProgress(elapsed);
+      if (audio && track.src) audio.currentTime = elapsed;
+    });
+
+    // document.getElementById('liveProgressTrack').addEventListener('click', function(e) {
+    //   const rect = this.getBoundingClientRect();
+    //   const pct  = (e.clientX - rect.left) / rect.width;
+    //   const track = LIVE_PLAYLIST[currentIndex];
+    //   elapsed = pct * track.duration;
+    //   updateProgress(elapsed);
+    //   if (audio && track.src) {
+    //     audio.currentTime = elapsed;
+    //   }
+    //   if (isPlaying) {
+    //     // Cancel the running RAF, reset the clock anchor, restart cleanly
+    //     if (rafId) cancelAnimationFrame(rafId);
+    //     elapsedAtStart = elapsed;
+    //     startTimestamp = null;
+    //     rafId = requestAnimationFrame(animateProgress);
+    //   } else {
+    //     // Not playing — just park the position so next play() starts here
+    //     elapsedAtStart = elapsed;
+    //     startTimestamp = null;
+    //   }
+    // });
+
+    // Init
+    loadTrack(0);
+
+    return { loadTrack, play, pause };
+  })();
+
 
   // ============================================================
   // NAV SCROLL BEHAVIOR
