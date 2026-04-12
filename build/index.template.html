@@ -805,16 +805,39 @@
     prevBtn.addEventListener('click', prevTrack);
 
     // Progress bar click to seek within segment
+    // document.getElementById('progressTrack').addEventListener('click', function(e) {
+    //   const rect = this.getBoundingClientRect();
+    //   const pct  = (e.clientX - rect.left) / rect.width;
+    //   const track = PLAYLIST[currentIndex];
+    //   elapsed = pct * track.duration;
+    //   elapsedAtStart = elapsed;
+    //   startTimestamp = null;
+    //   updateProgress(elapsed);
+    //   if (audio && track.src) {
+    //     audio.currentTime = (track.start || 0) + elapsed;
+    //   }
+    // });
+
     document.getElementById('progressTrack').addEventListener('click', function(e) {
       const rect = this.getBoundingClientRect();
       const pct  = (e.clientX - rect.left) / rect.width;
       const track = PLAYLIST[currentIndex];
       elapsed = pct * track.duration;
-      elapsedAtStart = elapsed;
-      startTimestamp = null;
       updateProgress(elapsed);
-      if (audio && track.src) {
-        audio.currentTime = (track.start || 0) + elapsed;
+      if (isPlaying) {
+        if (rafId) cancelAnimationFrame(rafId);
+        elapsedAtStart = elapsed;
+        startTimestamp = null;
+        if (audio && track.src) {
+          audio.currentTime = (track.start || 0) + elapsed;
+        }
+        rafId = requestAnimationFrame(animateProgress);
+      } else {
+        elapsedAtStart = elapsed;
+        startTimestamp = null;
+        if (audio && track.src) {
+          audio.currentTime = (track.start || 0) + elapsed;
+        }
       }
     });
 
@@ -859,7 +882,7 @@
       genre: "Soul Original",
       desc: "A slow-burn soul anthem, built for the late hours",
       color: "#c8821a",
-      src: "/samples/_bass-line-1.mp3",        // e.g. "audio/velvet-underground.mp3"
+      src: "/samples/bass-line-1.mp3",        // e.g. "audio/velvet-underground.mp3"
       duration: 210     // 3:45
     },
     {
@@ -868,7 +891,7 @@
       genre: "Neo-Soul Original",
       desc: "Honey-warm harmonies over a hypnotic groove",
       color: "#d4603a",
-      src: "/samples/_be-me.mp3",
+      src: "/samples/be-me.mp3",
       duration: 171     // 4:18
     },
     {
@@ -877,7 +900,7 @@
       genre: "Funk Original",
       desc: "When the bass drops and the floor has no choice",
       color: "#f5c84a",
-      src: "/samples/_funky-soul-5.mp3",
+      src: "/samples/funky-soul-5.mp3",
       duration: 220     // 3:18
     },
     {
@@ -886,7 +909,7 @@
       genre: "Jazz-Funk Original",
       desc: "A conversation between the keys and the crowd",
       color: "#a78bfa",
-      src: "/samples/_breathe-3.mp3",
+      src: "/samples/breathe-3.mp3",
       duration: 188     // 5:12
     }
   ];
@@ -1026,6 +1049,17 @@
       }
     }
 
+    // function play() {
+    //   isPlaying = true;
+    //   playIcon.style.display  = 'none';
+    //   pauseIcon.style.display = '';
+    //   setWaveActive(true);
+    //   elapsedAtStart = elapsed;
+    //   startTimestamp = null;
+    //   rafId = requestAnimationFrame(animateProgress);
+    //   if (audio && LIVE_PLAYLIST[currentIndex].src) audio.play().catch(() => {});
+    // }
+
     function play() {
       isPlaying = true;
       playIcon.style.display  = 'none';
@@ -1033,8 +1067,14 @@
       setWaveActive(true);
       elapsedAtStart = elapsed;
       startTimestamp = null;
+      if (rafId) cancelAnimationFrame(rafId);
       rafId = requestAnimationFrame(animateProgress);
-      if (audio && LIVE_PLAYLIST[currentIndex].src) audio.play().catch(() => {});
+
+      if (audio && PLAYLIST[currentIndex].src) {
+        // Always sync currentTime to elapsed so seek-then-play works correctly
+        audio.currentTime = (PLAYLIST[currentIndex].start || 0) + elapsed;
+        audio.play().catch(() => {});
+      }
     }
 
     function pause() {
