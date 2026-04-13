@@ -17,7 +17,7 @@
        NAV
   ============================================================ -->
   <nav id="navbar">
-    <div class="nav-logo">Hydromiel <span>— Live</span></div>
+    <div class="nav-logo">Hydromiel <span>Live Band</span></div>
     <ul class="nav-links">
       <li><a href="#listen">{{listen}}</a></li>
       <li><a href="#live">Live</a></li>
@@ -190,20 +190,7 @@
             <p>Beyond the covers and the crowd-pleasers, Hydromiel writes its own music. These tracks were born on stage — tested night after night in front of real audiences, refined until every note felt inevitable.</p>
           </div>
           <div class="live-photo">
-            <!--
-              TO ADD A REAL PHOTO:
-              Replace the .live-photo-inner div below with:
-              <img src="your-photo.jpg" alt="Hydromiel live on stage" class="live-photo-img" />
-            -->
-            <!-- <div class="live-photo-inner"> -->
-              <!-- <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <rect x="3" y="3" width="18" height="18" rx="2"/>
-                <circle cx="8.5" cy="8.5" r="1.5"/>
-                <path d="m21 15-5-5L5 21"/>
-              </svg>
-              <span>Band photo</span> -->
               <img src="/pictures/live.jpg" alt="Hydromiel live on stage" class="live-photo-img" />
-            <!-- </div> -->
           </div>
         </div>
 
@@ -267,36 +254,6 @@
         </div>
 
         <div class="video-wrap">
-          <!--
-            TO ADD A REAL VIDEO, replace the .video-placeholder div below with:
-
-            Option A — local file:
-            <video controls preload="none" poster="your-thumbnail.jpg">
-              <source src="your-video.mp4" type="video/mp4" />
-            </video>
-
-            Option B — YouTube embed:
-            <iframe width="100%" style="aspect-ratio:16/9;border:none;display:block;"
-              src="https://www.youtube.com/embed/YOUR_VIDEO_ID?rel=0"
-              title="Hydromiel live at Le Caveau"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen loading="lazy"></iframe>
-
-            Option C — Vimeo embed:
-            <iframe width="100%" style="aspect-ratio:16/9;border:none;display:block;"
-              src="https://player.vimeo.com/video/YOUR_VIDEO_ID?color=c8821a"
-              title="Hydromiel live at Le Caveau"
-              allow="autoplay; fullscreen; picture-in-picture"
-              allowfullscreen loading="lazy"></iframe>
-          -->
-          <!-- <div class="video-placeholder" role="button" aria-label="Play video" tabindex="0"
-               onclick="this.innerHTML='<p style=\'color:var(--cream-dim);padding:3rem;text-align:center;font-style:italic;\'>Add your video src — see the HTML comment above for instructions.</p>'">
-            <div class="video-play-btn">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-            <p class="video-placeholder-label">Play — Le Caveau, Lyon · March 2025</p>
-            <span class="video-duration-badge">3:12</span>
-          </div> -->
           <video controls preload="none" poster="/pictures/cover.png">
             <source src="/pictures/hydromiel_funky_soul.mp4" type="video/mp4" />
           </video>
@@ -534,20 +491,20 @@
       genre: "Funk",
       desc: "Irresistible groove — resistance is futile",
       color: "#f5c84a",
-      src: "{{music_url}}samples/feelgood.mp3",
+      src: "{{music_url}}samples/feelgood_.mp3",
       start: 0,
-      duration: 42
-    },
-    {
-      id: 7,
-      title: "Jam",
-      genre: "Groove",
-      desc: "When we're in the mood, we're in the mood",
-      color: "#d4603a",
-      src: "{{music_url}}samples/groovy_jam.mp3",
-      start: 0,
-      duration: 46
-    }    
+      duration: 40
+    }
+    // {
+    //   id: 7,
+    //   title: "Jam",
+    //   genre: "Groove",
+    //   desc: "When we're in the mood, we're in the mood",
+    //   color: "#d4603a",
+    //   src: "{{music_url}}samples/groovy_jam.mp3",
+    //   start: 0,
+    //   duration: 46
+    // }    
   ];
 
   // ============================================================
@@ -749,13 +706,8 @@
 
       // If real audio src available
       if (track.src) {
-        // if (!audio) audio = new Audio();
         if (!audio) {
           audio = new Audio();
-          // Add ended event listener
-          // audio.addEventListener('ended', () => {
-          //   if (isPlaying) nextTrack();
-          // });
         }        
         audio.src = track.src;
         audio.currentTime = track.start || 0;
@@ -805,19 +757,6 @@
     prevBtn.addEventListener('click', prevTrack);
 
     // Progress bar click to seek within segment
-    // document.getElementById('progressTrack').addEventListener('click', function(e) {
-    //   const rect = this.getBoundingClientRect();
-    //   const pct  = (e.clientX - rect.left) / rect.width;
-    //   const track = PLAYLIST[currentIndex];
-    //   elapsed = pct * track.duration;
-    //   elapsedAtStart = elapsed;
-    //   startTimestamp = null;
-    //   updateProgress(elapsed);
-    //   if (audio && track.src) {
-    //     audio.currentTime = (track.start || 0) + elapsed;
-    //   }
-    // });
-
     document.getElementById('progressTrack').addEventListener('click', function(e) {
       const rect = this.getBoundingClientRect();
       const pct  = (e.clientX - rect.left) / rect.width;
@@ -841,27 +780,7 @@
       }
     });
 
-    // document.getElementById('progressTrack').addEventListener('click', function(e) {
-    //   const rect = this.getBoundingClientRect();
-    //   const pct  = (e.clientX - rect.left) / rect.width;
-    //   const track = PLAYLIST[currentIndex];
-    //   elapsed = pct * track.duration;
-    //   updateProgress(elapsed);
-    //   if (audio && track.src) {
-    //     audio.currentTime = (track.start || 0) + elapsed;
-    //   }
-    //   if (isPlaying) {
-    //     if (rafId) cancelAnimationFrame(rafId);
-    //     elapsedAtStart = elapsed;
-    //     startTimestamp = null;
-    //     rafId = requestAnimationFrame(animateProgress);
-    //   } else {
-    //     elapsedAtStart = elapsed;
-    //     startTimestamp = null;
-    //   }
-    // });
 
-    // Init
     updateUI(PLAYLIST[0]);
     updateProgress(0);
     loadTrack(0);
@@ -1049,16 +968,6 @@
       }
     }
 
-    // function play() {
-    //   isPlaying = true;
-    //   playIcon.style.display  = 'none';
-    //   pauseIcon.style.display = '';
-    //   setWaveActive(true);
-    //   elapsedAtStart = elapsed;
-    //   startTimestamp = null;
-    //   rafId = requestAnimationFrame(animateProgress);
-    //   if (audio && LIVE_PLAYLIST[currentIndex].src) audio.play().catch(() => {});
-    // }
 
     function play() {
       isPlaying = true;
@@ -1113,27 +1022,6 @@
       if (audio && track.src) audio.currentTime = elapsed;
     });
 
-    // document.getElementById('liveProgressTrack').addEventListener('click', function(e) {
-    //   const rect = this.getBoundingClientRect();
-    //   const pct  = (e.clientX - rect.left) / rect.width;
-    //   const track = LIVE_PLAYLIST[currentIndex];
-    //   elapsed = pct * track.duration;
-    //   updateProgress(elapsed);
-    //   if (audio && track.src) {
-    //     audio.currentTime = elapsed;
-    //   }
-    //   if (isPlaying) {
-    //     // Cancel the running RAF, reset the clock anchor, restart cleanly
-    //     if (rafId) cancelAnimationFrame(rafId);
-    //     elapsedAtStart = elapsed;
-    //     startTimestamp = null;
-    //     rafId = requestAnimationFrame(animateProgress);
-    //   } else {
-    //     // Not playing — just park the position so next play() starts here
-    //     elapsedAtStart = elapsed;
-    //     startTimestamp = null;
-    //   }
-    // });
 
     // Init
     loadTrack(0);

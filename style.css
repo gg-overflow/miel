@@ -161,7 +161,7 @@ nav.scrolled {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2.5rem;
+  gap: 2rem;
 }
 .mobile-menu.open { display: flex; }
 .mobile-menu a {
