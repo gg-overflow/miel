@@ -26,7 +26,8 @@
       "orig_text": "Beyond the covers and the crowd-pleasers, Hydromiel writes its own music. These tracks were born on stage — tested night after night in front of real audiences, refined until every note felt inevitable.",
       "magic": "Magic",
       "call1": "Let's Make ",
-      "call2": ""
+      "call2": "",
+      "baro": "A Night au <em>Baro</em>"
     },
     "fr": {
       "lang": "fr",
@@ -55,6 +56,7 @@
       "orig_text": "Au-delà des reprises et des grands classiques, Hydromiel façonne sa propre identité. Nos morceaux naissent d'abord d'improvisations spontanées, que nous structurons ensuite ensemble. Chacun y ajoute sa sensibilité et sa technique. Nous peaufinons le tout jusqu’à obtenir un équilibre qui nous ressemble afin de raconter une histoire qui nous est propre avant de vous la partager.",
       "magic": "l'expérience Hydromiel",
       "call1": "Prêt pour ",
-      "call2": "?"
+      "call2": "?",
+      "baro": "Une soirée au <em>Baro</em>"
     }
   }
