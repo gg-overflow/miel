@@ -3,21 +3,61 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hydromiel — Live Music Band</title>
+  <title>Hydromiel Musique — Groupe de musique Live: Soul, Funk, Reggae...</title>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MusicGroup",
+      "name": "Hydromiel",
+      "url": "https://hydromiel-musique.fr",
+      "description": "Groupe de musique Hydromiel",
+      "genre": "Soul, Funk, Reggae, Groove, Jazz, Neo-Soul, Disco, Pop",
+      "image": [
+          "/pictures/miel.jpg",
+          "/pictures/miel-disco.jpg",
+          "/pictures/live.jpg"
+      ],
+      "track": [
+          {
+              "@type": "MusicRecording",
+              "audio": "/samples/bass-line-1.mp3",
+              "name": "Sweet Bass Line"
+          },
+          {
+            "@type": "MusicRecording",
+            "audio": "/samples/be-me.mp3",
+            "name": "Fine to just be me"
+          },
+          {
+            "@type": "MusicRecording",
+            "audio": "/samples/funky-soul-5.mp3",
+            "name": "Funky Soul"
+          },
+          {
+            "@type": "MusicRecording",
+            "audio": "/samples/breathe-3.mp3",
+            "name": "Breathe"
+          }
+      ]
+    }
+    </script>
+
   <meta name="description" content="Hydromiel brings soul, funk, jazz, reggae & disco to your venue. Upscale lounge meets the dance floor." />
   <meta property="og:image" content="{{picture_url}}" />
   <link rel="shortcut icon" type="image/png" href="{{favicon_url}}">
 
   <link href="{{style_url}}" rel="stylesheet" />
 
+
 </head>
-<body>
+<body  itemscope itemtype="https://schema.org/MusicGroup">
 
   <!-- ============================================================
        NAV
   ============================================================ -->
   <nav id="navbar">
-    <div class="nav-logo">Hydromiel <span>Live Band</span></div>
+    <div itemprop="name" class="nav-logo">Hydromiel <span>Musique</span></div>
     <ul class="nav-links">
       <li><a href="#listen">{{listen}}</a></li>
       <li><a href="#live">Live</a></li>
@@ -76,6 +116,7 @@
 
     <div class="hero-content reveal">
       <p class="hero-eyebrow">Upscale lounge meets the dance floor</p>
+      <!-- <h1 itemprop="name" style="display:none;">Hydromiel</h1> -->
       <h1 class="hero-title">
         Hydro
         <span class="italic-line">miel</span>
@@ -190,7 +231,7 @@
             <p>{{orig_text}}</p>
           </div>
           <div class="live-photo">
-              <img src="/pictures/live.jpg" alt="Hydromiel live on stage" class="live-photo-img" />
+              <img src="/pictures/live.jpg" alt="Hydromiel Musique live on stage" class="live-photo-img" />
           </div>
         </div>
 
@@ -247,15 +288,22 @@
       </div>
 
       <!-- ---- VIDEO ---- -->
-      <div class="live-video-block reveal">
+      <div itemprop="subjectOf" itemscope itemtype="https://schema.org/VideoObject" class="live-video-block reveal">
         <div class="live-video-header">
-          <h3>{{baro}}</h3>
-          <p>Captured live — full set, real crowd, pure Hydromiel energy.</p>
+          <h3 itemprop="name">{{baro}}</h3>
+          <p itemprop="description">Captured live — full set, real crowd, pure Hydromiel energy.</p>
         </div>
 
         <div class="video-wrap">
+          <meta itemprop="thumbnail" content="/pictures/cover.png">
+          <meta itemprop="contentUrl" content="/pictures/hydromiel_funky_soul.mp4">
+          <meta itemprop="embedUrl" content="/pictures/hydromiel_funky_soul.mp4">
+          <meta itemprop="uploadDate" content="2026-05-05T08:00:00+08:00">
+          <meta itemprop="thumbnailUrl" content="/pictures/cover.png">
           <video controls preload="none" poster="/pictures/cover.png">
-            <source src="/pictures/hydromiel_funky_soul.mp4" type="video/mp4" />
+            <!-- <object> -->
+              <source src="/pictures/hydromiel_funky_soul.mp4" type="video/mp4" />
+            <!-- </object> -->
           </video>
         </div>
       </div>
@@ -278,28 +326,19 @@
           <div class="egg-container" id="easterEgg" data-target="5">
             <!-- Initial Image -->
             <img src="/pictures/miel.jpg" 
-                 alt="Hydromiel on stage" 
+                 alt="Hydromiel musique on stage" 
                  class="stage-photo egg-image visible" 
                  id="img-front">
             
             <!-- The Reveal Image (Hidden initially) -->
             <img src="/pictures/miel-disco.jpg" 
-                 alt="Hydromiel on stage Disco" 
+                 alt="Hydromiel musique on stage Disco" 
                  class="stage-photo egg-image hidden" 
                  id="img-back">
     
             <!-- Countdown Overlay -->
             <div class="countdown-badge" id="countdown">3</div>
         </div>
-            <!-- <img src="{{picture_url}}" alt="Hydromiel on stage" class="stage-photo" /> -->
-          <!-- <div class="stage-light l1"></div> -->
-          <!-- <div class="stage-light l2"></div> -->
-          <!-- <div class="stage-light l3"></div> -->
-          <!-- <div class="stage-mini-ball"></div> -->
-          <!-- <div class="stage-silhouettes" id="stageSilhouettes"> -->
-            <!-- Generated by JS -->
-          <!-- </div> -->
-          <!-- <div class="stage-floor"></div> -->
         </div>
       </div>
 
@@ -436,7 +475,7 @@
        FOOTER
   ============================================================ -->
   <footer>
-    <div class="footer-logo">Hydromiel</div>
+    <div class="footer-logo">Hydromiel Musique</div>
     <p class="footer-copy">© Hydromiel. All rights reserved. Made with soul &amp; groove.</p>
   </footer>
 
