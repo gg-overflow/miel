@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Allow: /en/
+
+# Disallow common private/admin paths (adjust if your site uses different paths)
+Disallow: /build/
+Disallow: /build/index.template.html
+
+# Sitemap location (update this URL if your sitemap is elsewhere)
+Sitemap: https://hydromiel-musique.fr/sitemap.xml
