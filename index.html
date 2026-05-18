@@ -39,6 +39,10 @@
             "audio": "/samples/breathe-3.mp3",
             "name": "Breathe"
           }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/people/Hydromielmusique/61581949483668/",
+        "https://www.instagram.com/hydromiel.musique"
       ]
     }
     </script>
@@ -51,13 +55,14 @@
 
 
 </head>
-<body  itemscope itemtype="https://schema.org/MusicGroup">
+<!-- <body  itemscope itemtype="https://schema.org/MusicGroup"> -->
+<body>
 
   <!-- ============================================================
        NAV
   ============================================================ -->
   <nav id="navbar">
-    <div itemprop="name" class="nav-logo">Hydromiel <span>Musique</span></div>
+    <div class="nav-logo">Hydromiel <span>Musique</span></div>
     <ul class="nav-links">
       <li><a href="#listen">Ecouter</a></li>
       <li><a href="#live">Live</a></li>
@@ -288,22 +293,23 @@
       </div>
 
       <!-- ---- VIDEO ---- -->
-      <div itemprop="subjectOf" itemscope itemtype="https://schema.org/VideoObject" class="live-video-block reveal">
+      <div class="live-video-block reveal">
+      <!-- <div itemprop="subjectOf" itemscope itemtype="https://schema.org/VideoObject" class="live-video-block reveal"> -->
         <div class="live-video-header">
-          <h3 itemprop="name">Une soirée au <em>Baro</em></h3>
-          <p itemprop="description">Captured live — full set, real crowd, pure Hydromiel energy.</p>
+          <h3>Une soirée au <em>Baro</em></h3>
+          <p>Captured live — full set, real crowd, pure Hydromiel energy.</p>
+          <!-- <h3 itemprop="name">Une soirée au <em>Baro</em></h3>
+          <p itemprop="description">Captured live — full set, real crowd, pure Hydromiel energy.</p> -->
         </div>
 
         <div class="video-wrap">
-          <meta itemprop="thumbnail" content="/pictures/cover.png">
-          <meta itemprop="contentUrl" content="/pictures/hydromiel_funky_soul.mp4">
-          <meta itemprop="embedUrl" content="/pictures/hydromiel_funky_soul.mp4">
-          <meta itemprop="uploadDate" content="2026-05-05T08:00:00+08:00">
-          <meta itemprop="thumbnailUrl" content="/pictures/cover.png">
+          <!-- <meta itemprop="thumbnail" content="/pictures/cover.png"> -->
+          <!-- <meta itemprop="contentUrl" content="/pictures/hydromiel_funky_soul.mp4"> -->
+          <!-- <meta itemprop="embedUrl" content="/pictures/hydromiel_funky_soul.mp4"> -->
+          <!-- <meta itemprop="uploadDate" content="2026-05-05T08:00:00+08:00"> -->
+          <!-- <meta itemprop="thumbnailUrl" content="/pictures/cover.png"> -->
           <video controls preload="none" poster="/pictures/cover.png">
-            <!-- <object> -->
               <source src="/pictures/hydromiel_funky_soul.mp4" type="video/mp4" />
-            <!-- </object> -->
           </video>
         </div>
       </div>
